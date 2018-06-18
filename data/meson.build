@@ -8,16 +8,12 @@ if get_option('tests') and get_option('daemon')
   subdir('installed-tests')
 endif
 
-install_data(['daemon.conf'],
-  install_dir : join_paths(sysconfdir, 'fwupd')
-)
-
 install_data(['org.freedesktop.fwupd.metainfo.xml'],
   install_dir: join_paths(datadir, 'metainfo')
 )
 
 install_data(['org.freedesktop.fwupd.conf'],
-  install_dir : join_paths(sysconfdir, 'dbus-1', 'system.d')
+  install_dir : join_paths(get_option('prefix'), 'etc', 'dbus-1', 'system.d')
 )
 
 install_data(['metadata.xml'],
